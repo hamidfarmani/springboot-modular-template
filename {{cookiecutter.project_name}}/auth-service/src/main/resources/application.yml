@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/{{cookiecutter.project_name}}
+    username: myuser
+    password: mypass
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+
+jwt:
+  secret:
+
+server:
+  port: 8082
+  error:
+    include-message: always
+    include-binding-errors: always

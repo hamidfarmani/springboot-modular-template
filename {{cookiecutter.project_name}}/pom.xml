@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>{{cookiecutter.spring_boot_version}}</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>{{cookiecutter.package_name}}</groupId>
+  <artifactId>{{cookiecutter.project_name}}</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>{{cookiecutter.project_name}}</name>
+  <description>{{cookiecutter.project_description}}</description>
+  <packaging>pom</packaging>
+
+  <modules>
+    {% if cookiecutter.include_discovery_service == "y" %}
+    <module>discovery</module>
+    {% endif %}
+    {% if cookiecutter.include_api_gateway == "y" %}
+    <module>gateway</module>
+    {% endif %}
+    {% if cookiecutter.include_config_service == "y" %}
+    <module>config-server</module>
+    {% endif %}
+    {% if cookiecutter.include_auth_service == "y" %}
+    <module>auth-service</module>
+    {% endif %}
+  </modules>
+
+  <url>https://github.com/example/{{cookiecutter.project_name}}</url>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git@github.com:example/{{cookiecutter.project_name}}.git</connection>
+    <developerConnection>scm:git:git@github.com:example/{{cookiecutter.project_name}}.git</developerConnection>
+    <url>https://github.com/example/{{cookiecutter.project_name}}</url>
+  </scm>
+
+  <properties>
+    <java.version>{{cookiecutter.java_version}}</java.version>
+  </properties>
+</project>
